@@ -40,7 +40,6 @@
 	</fieldset>
 </form>
 </div>
-</body>
 <script>
  	function checkVal() {
 		var objs = document.querySelectorAll('input');
@@ -68,4 +67,5 @@
 		return true;
 	}
 </script>
+</body>
 </html>
