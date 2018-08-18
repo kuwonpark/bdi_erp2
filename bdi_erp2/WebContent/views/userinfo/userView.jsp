@@ -1,12 +1,12 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="com.bdi.erp.common.DBConnection"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="com.bdi.erp.common.DBConnection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
-<%@include file="/views/common/common.jsp" %>
+    pageEncoding="UTF-8"%>
+<%@ include file="/views/common/common.jsp"%>
 <body>
-<div class="containor">
+<div class="container">
 <%
 String uiName = "";
 String uiId = "";
@@ -14,9 +14,8 @@ String uiDesc = "";
 int uiNo = Integer.parseInt(request.getParameter("uiNo"));
 int uiAge = 0;
 int diNo = 0;
-
 Connection con = DBConnection.getCon();
-String sql = "select uiName, uiId, uiDesc, uiNo, uiAge,";
+String sql = "select uiName, uiId, uiDesc, uiNo, uiAge,"; 
 sql += " diNo from user_info";
 sql += " where uiNo=?";
 PreparedStatement ps = con.prepareStatement(sql);
@@ -30,7 +29,7 @@ if(rs.next()){
 	diNo = rs.getInt("diNo");
 }
 %>
-<form action="<%=rPath%>/views/userinfo/userUpdateOk.jsp" onsubmit="return checkVal()">
+<form action="<%=rPath%>/views/userinfo/userUpdateOK.jsp" onsubmit="return checkVal()">
 	<fieldset>
 		<legend>유저 수정</legend>
 		<table class="table table-bordered">
@@ -48,7 +47,7 @@ if(rs.next()){
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password" name="uiPwd" ></td>
+				<td><input type="password" name="uiPwd"></td>
 			</tr>
 			<tr>
 				<th>유저설명</th>
@@ -70,6 +69,7 @@ if(rs.next()){
 			</tr>
 		</table>
 	</fieldset>
+	<input type="hidden" name="uiNo" value="<%=uiNo%>">
 </form>
 </div>
 <script>
@@ -78,18 +78,18 @@ if(rs.next()){
 			location.href="<%=rPath%>/views/userinfo/userDeleteOK.jsp?uiNo=<%=uiNo%>";
 		}
 	}
- 	function checkVal() {
+	function checkVal(){
 		var objs = document.querySelectorAll('input');
-		for(var i=0; i<objs.length; i++){
+		for(var i=0;i<objs.length;i++){
 			if(objs[i].type!="number"){
 				if(objs[i].value.length<1 || objs[i].value.length>=30){
-					alert(objs[i].name+"값을 확인해주세요.");
+					alert(objs[i].name + "의 값을 확인해주세요.")
 					objs[i].focus();
 					return false;
 				}
 			}else{
 				if(objs[i].value<1){
-					alert(objs[i].name+"값을 확인해주세요.");
+					alert(objs[i].name + "의 값을 확인해주세요.")
 					objs[i].focus();
 					return false;
 				}
@@ -97,7 +97,7 @@ if(rs.next()){
 		}
 		var obj = document.querySelector('textarea');
 		if(obj.value.length>=2000){
-			alert("유저설명은 2000자 이상일 수 없습니다.");
+			alert("유저설명은 2000자이상일 수 없습니다.");
 			obj.focus();
 			return false;
 		}

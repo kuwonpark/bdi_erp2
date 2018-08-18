@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
-<%@include file="/views/common/common.jsp" %>
+    pageEncoding="UTF-8"%>
+<%@ include file="/views/common/common.jsp"%>
 <body>
-<div class="containor">
-<form action="<%= rPath%>/views/userinfo/userInsertOk.jsp" onsubmit="return checkVal()">
+<div class="container">
+<form action="<%=rPath%>/views/userinfo/userInsertOK.jsp" onsubmit="return checkVal()">
 	<fieldset>
 		<legend>유저 등록</legend>
 		<table class="table table-bordered">
@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<th>나이</th>
-				<td><input type="number" name="uiAge" min="1" max="120">
+				<td><input type="number" name="uiAge" min="1" max="120"></td>
 			</tr>
 			<tr>
 				<th>부서번호</th>
@@ -41,18 +41,18 @@
 </form>
 </div>
 <script>
- 	function checkVal() {
+	function checkVal(){
 		var objs = document.querySelectorAll('input');
-		for(var i=0; i<objs.length; i++){
+		for(var i=0;i<objs.length;i++){
 			if(objs[i].type!="number"){
 				if(objs[i].value.length<1 || objs[i].value.length>=30){
-					alert(objs[i].name+"값을 확인해주세요.");
+					alert(objs[i].name + "의 값을 확인해주세요.")
 					objs[i].focus();
 					return false;
 				}
 			}else{
 				if(objs[i].value<1){
-					alert(objs[i].name+"값을 확인해주세요.");
+					alert(objs[i].name + "의 값을 확인해주세요.")
 					objs[i].focus();
 					return false;
 				}
@@ -60,7 +60,7 @@
 		}
 		var obj = document.querySelector('textarea');
 		if(obj.value.length>=2000){
-			alert("유저설명은 2000자 이상일 수 없습니다.");
+			alert("유저설명은 2000자이상일 수 없습니다.");
 			obj.focus();
 			return false;
 		}

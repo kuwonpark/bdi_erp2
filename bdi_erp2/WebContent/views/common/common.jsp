@@ -10,6 +10,7 @@
 	<meta charset="utf-8">
 	<title><%=title %></title>
 <link rel="styLesheet" href="<%=rPath %>/bs3/css/bootstrap.css">
+<link rel="stylesheet" href="<%=rPath%>/bs3/css/simple-sidebar.css"/>
 <link rel="styLesheet" href="<%=rPath %>/bs3/css/bootstrap-theme.css">
 <script src="<%=rPath %>/bs3/js/jquery-3.3.1.js"></script>
 <script src="<%=rPath %>/bs3/js/bootstrap.js"></script>
